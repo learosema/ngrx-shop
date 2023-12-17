@@ -1,16 +1,50 @@
-<h1>Lea's Pizza store 🍕</h1>
-{{ page }}
-<nav class="pages">
-  Page:
-  <ul>
-    @for (navPage of pages; track navPage) {
-      <li><a [routerLink]="['/', navPage]" routerLinkActive="active" ariaCurrentWhenActive="page">{{ navPage }}</a></li>
+<div class="wrapper flow">
+
+  <h1>Menu</h1>
+  <nav class="pages">
+    Page:
+    <ul>
+      @for (navPage of pages; track navPage) {
+        <li><a [routerLink]="['/', navPage]" routerLinkActive="active" ariaCurrentWhenActive="page">{{ navPage }}</a></li>
+      }
+    </ul>
+  </nav>
+  <div class="grid">
+    @for (product of products(); track product.id) {
+      <article class="product | card block-button">
+        <h2 class="product__title">{{ product.name }}</h2>
+        <div>{{ product.price | price }} €</div>
+        <button type="button" class="button" (click)="addToCart(product)">add to cart</button>
+      </article>
     }
-  </ul>
-</nav>
-@for (product of products(); track product.id) {
-  <article class="product">
-    <h2 class="product__title">{{ product.name }}</h2>
-    <div>{{ product.price | price }} €</div>
-  </article>
-}
+  </div>
+</div>
+
+<dialog class="dialog flow" #addToCartDialog>
+  <form method="dialog">
+    <button class="dialog__close" aria-label="close dialog">
+      <svg viewBox="0 0 24 24"><path stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" d="M 2 2L22 22 M 22 2L2 22" /></svg>
+    </button>
+  </form>
+
+  <div class="flow">
+    @if (currentProduct()) {
+      <h2>{{ currentProduct()!.name }}</h2>
+
+      <form>
+        <div class="flow">
+          @for (extra of currentProduct()!.extras; track extra) {
+            <div class="field">
+              <input type="checkbox" [id]="extra | slug">
+              <label [for]="extra | slug">{{ extra }}</label>
+            </div>
+          }
+          <button class="button">add to cart</button>
+        </div>
+
+      </form>
+    }
+  </div>
+
+
+</dialog>

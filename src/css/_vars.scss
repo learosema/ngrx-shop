@@ -1,0 +1,30 @@
+:root {
+  --bg: #fff;
+  --fg: #222;
+
+  --header-bg: #663399;
+  --header-fg: #fff;
+
+  --footer-bg: #000;
+  --footer-fg: #fff;
+
+
+  --button-bg: #f37;
+  --button-fg: #fff;
+  --button-active-bg: #c26;
+
+  --card-bg: #aef;
+  --card-fg: #000;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --bg: #222;
+    --fg: #fff;
+
+    --card-bg: #234;
+    --card-fg: #fff;
+
+    --link-fg: #1af;
+  }
+}

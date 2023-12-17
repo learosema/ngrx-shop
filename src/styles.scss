@@ -1,7 +1,13 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+@import 'css/palette';
+@import 'css/font-size';
+@import 'css/reset';
+@import 'css/vars';
+@import 'css/global';
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+@import 'css/button';
+@import 'css/grid';
+@import 'css/wrapper';
+@import 'css/flow';
+@import 'css/card';
+@import 'css/block-link';
+@import 'css/block-button';

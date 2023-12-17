@@ -1,27 +1,65 @@
 .pages {
   display: flex;
-  gap: 2em;
+  flex-wrap: wrap;
+  gap: 0.5em;
   align-items: center;
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
   }
 
   a {
     display: block;
     padding: .5em;
-    border: 1px solid #ccc;
+    border: 1px solid var(--fg, #222);
     border-radius: 2px;
-    color: #222;
 
     &.active {
-      background: #fcf;
+      background: var(--fg);
+      color: var(--bg);
       font-weight: bold;
     }
   }
 
 
+}
+
+
+.dialog {
+  --bg: var(--dialog-bg, #fff);
+  --fg: var(--dialog-fg, #222);
+  background: var(--bg);
+  color: var(--fg);
+  padding: 1rem;
+  max-width: 600px;
+  margin: auto;
+
+  &__close {
+    background: transparent;
+    color: currentColor;
+    padding: 10px;
+    float: right;
+    > svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .field {
+
+    label {
+      display: block;
+    }
+
+    input[type="checkbox"] + label {
+      user-select: none;
+      display: inline-block;
+      margin-inline-start: 1ch;
+    }
+  }
 }

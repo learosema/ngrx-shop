@@ -1,15 +1,18 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectLoading, selectProducts } from '../../state/product.selectors';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { productActions } from '../../state/product.actions';
 import { PricePipe } from '../../pipes/price.pipe';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { Product } from '../../state/product.model';
+import { SlugPipe } from '../../pipes/slug.pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [PricePipe, RouterLink, RouterLinkActive],
+  imports: [PricePipe, SlugPipe, RouterLink, RouterLinkActive],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -36,9 +39,20 @@ export class HomeComponent implements OnInit {
 
   products = toSignal(this.store.select(selectProducts));
 
-  ngOnInit(): void {
+  currentProduct$ = new BehaviorSubject<Product|null>(null)
 
+  currentProduct = toSignal(this.currentProduct$);
+
+  @ViewChild('addToCartDialog') addToCartDialog: ElementRef<HTMLDialogElement> | undefined;
+
+  ngOnInit(): void {
+    // nothing here
+  }
+
+
+  addToCart(product: Product) {
+    this.currentProduct$.next(product);
+    this.addToCartDialog?.nativeElement.showModal();
   }
 
 }
-

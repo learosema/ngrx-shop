@@ -1,0 +1,14 @@
+@media (hover: hover) {
+  .block-button {
+    position: relative;
+  }
+
+  .block-button button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}

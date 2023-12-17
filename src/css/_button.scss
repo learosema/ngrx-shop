@@ -1,0 +1,15 @@
+.button {
+  background: var(--button-bg, #444);
+  color: var(--button-fg, #fff);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 0.5em 1em;
+
+  &:active {
+    background: var(--button-active-bg, #222);
+    color: var(--button-active-fg, #fff);
+  }
+}
