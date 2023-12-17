@@ -30,6 +30,11 @@
 
 
 .dialog {
+
+  &::backdrop {
+    background: #000a;
+  }
+
   --bg: var(--dialog-bg, #fff);
   --fg: var(--dialog-fg, #222);
   background: var(--bg);
