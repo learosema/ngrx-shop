@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 const pick = (...arr) => arr[Math.floor(Math.random() * arr.length)];
+const someOf = (...arr) => arr.map(x => Math.random() > 0.25 ? x : undefined).filter(Boolean);
 const rand = (a, b) => a + Math.floor(Math.random() * (b - a + 1))
 
 const getuuid = () => Array.from({length: 4}, () => Math.random().toString(16).slice(2)).join('-')
@@ -14,7 +15,7 @@ const dataset = {
       pick('Napoli', 'Arrabiata', 'Tonno', 'Pollo', 'Gorgonzola', 'Prosciotto', 'Quattro Staggioni', 'Mafiosi', 'Fungi'),
       pick('a la Mama', 'a la Papa', 'del Pastor', 'a la Familia', 'verde', 'rosso', 'e Spinaci', 'Pronto', 'Speciale', 'e Cipola', '')
     ].join(' ').trim(),
-    extras: ['extra cheese', 'extra onion', 'extra meat', 'bacon', 'egg', 'olives', 'cheddar', 'sausages', 'thuna'],
+    extras: someOf('extra cheese', 'extra onion', 'extra meat', 'bacon', 'egg', 'olives', 'cheddar', 'sausages', 'thuna'),
     price: (rand(8, 19)) * 100 + 95,
     rating: {
       score: rand(3, 10) / 2,
