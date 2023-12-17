@@ -13,6 +13,7 @@ export class ProductEffects {
 
   loadProducts$ = createEffect(() => this._actions$.pipe(
     ofType('[Product] Load Products'),
+    tap((...debug: any[]) => console.log(debug)),
     switchMap(({offset, limit}) => this._restaurantService.getProducts(offset, limit).pipe(
       map((products: Product[]) => {
         return productActions.retrievedProducts({products});

@@ -23,4 +23,4 @@ const dataset = {
   }))
 };
 
-fs.writeFileSync('public/restaurant.json', JSON.stringify(dataset, null, 2), 'utf8');
+fs.writeFileSync('src/assets/restaurant.json', JSON.stringify(dataset, null, 2), 'utf8');

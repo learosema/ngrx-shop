@@ -1,0 +1,27 @@
+.pages {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 8px;
+  }
+
+  a {
+    display: block;
+    padding: .5em;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #222;
+
+    &.active {
+      background: #fcf;
+      font-weight: bold;
+    }
+  }
+
+
+}

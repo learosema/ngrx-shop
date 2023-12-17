@@ -12,7 +12,13 @@ export class RestaurantService {
   private _http = inject(HttpClient);
 
   getRestaurant(): Observable<Restaurant> {
-    return this._http.get<Restaurant>('/restaurant.json')
+    return this._http.get<Restaurant>('/assets/restaurant.json');
+  }
+
+  getProductCount(): Observable<number> {
+    return this.getRestaurant().pipe(
+      map(restaurant => restaurant.products.length)
+    );
   }
 
   getProducts(offset: number = 0, count: number = 10): Observable<Product[]> {

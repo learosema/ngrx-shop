@@ -12,8 +12,8 @@ export const productReducer = createReducer<ProductState>(initialState,
     ...state,
     loading: true
   })),
-  on(productActions.retrievedProducts, (_state, payload) => ({
+  on(productActions.retrievedProducts, (_state, {products}) => ({
     loading: false,
-    products: payload.products
+    products,
   }))
 );

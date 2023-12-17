@@ -1,0 +1,16 @@
+<h1>Lea's Pizza store 🍕</h1>
+{{ page }}
+<nav class="pages">
+  Page:
+  <ul>
+    @for (navPage of pages; track navPage) {
+      <li><a [routerLink]="['/', navPage]" routerLinkActive="active" ariaCurrentWhenActive="page">{{ navPage }}</a></li>
+    }
+  </ul>
+</nav>
+@for (product of products(); track product.id) {
+  <article class="product">
+    <h2 class="product__title">{{ product.name }}</h2>
+    <div>{{ product.price | price }} €</div>
+  </article>
+}
