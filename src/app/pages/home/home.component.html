@@ -13,6 +13,7 @@
     @for (product of products(); track product.id) {
       <article class="product | card block-button">
         <h2 class="product__title">{{ product.name }}</h2>
+        <app-star-rating [votes]="product.rating.votes" [score]="product.rating.score"></app-star-rating>
         <div>{{ product.price | price }} €</div>
         <button type="button" class="button" (click)="addToCart(product)">add to cart</button>
       </article>
@@ -30,7 +31,6 @@
   <div class="flow">
     @if (currentProduct()) {
       <h2>{{ currentProduct()!.name }}</h2>
-
       <form>
         <div class="flow">
           @for (extra of currentProduct()!.extras; track extra) {

@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: small;
+}
+
+.stars {
+  display: flex;
+  width: 7.5em;
+  gap: 4px;
+
+  > * {
+    flex: 1;
+    aspect-ratio: 1 / 1;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+}
+
+.yellow {
+  background: #fc3;
+}
+
+.gray {
+  background: #444;
+}
+
+.half {
+  background: linear-gradient(to right, #fc3 50%, #444 50%);
+}

@@ -8,11 +8,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from '../../state/product.model';
 import { SlugPipe } from '../../pipes/slug.pipe';
+import { StarRatingComponent } from '../../components/star-rating/star-rating.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [PricePipe, SlugPipe, RouterLink, RouterLinkActive],
+  imports: [PricePipe, SlugPipe, StarRatingComponent, RouterLink, RouterLinkActive],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

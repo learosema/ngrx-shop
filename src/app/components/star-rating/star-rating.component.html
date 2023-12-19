@@ -1,0 +1,6 @@
+<div class="stars" role="img" title="Rating: {{ score.toFixed(1) }}">
+  @for (cssClasses of starClasses; track $index) {
+    <div [attr.class]="cssClasses"></div>
+  }
+</div>
+<div>{{ votes }} votes</div>
