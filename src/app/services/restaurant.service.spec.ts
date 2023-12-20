@@ -45,7 +45,7 @@ describe('RestaurantService', () => {
 
   it('should be able to get products', async () => {
     const serviceResponse = firstValueFrom(service.getProducts());
-    const testRequest = httpTest.expectOne('/restaurant.json', 'expect the restaurant.json to be fetched.');
+    const testRequest = httpTest.expectOne('/assets/restaurant.json', 'expect the restaurant.json to be fetched.');
     expect(testRequest.request.method).toBe('GET');
     testRequest.flush(TEST_DATA);
 
@@ -55,7 +55,7 @@ describe('RestaurantService', () => {
 
   it('should be able to get a product by ID', async () => {
     const serviceResponse = firstValueFrom(service.getProductById(TEST_PIZZA.id));
-    const testRequest = httpTest.expectOne('/restaurant.json', 'expect the restaurant.json to be fetched.');
+    const testRequest = httpTest.expectOne('/assets/restaurant.json', 'expect the restaurant.json to be fetched.');
     expect(testRequest.request.method).toBe('GET');
     testRequest.flush(TEST_DATA);
 
